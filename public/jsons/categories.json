@@ -1,0 +1,26 @@
+[
+  {
+    "CategoriaId": 1,
+    "CategoriaName": "Calle"
+  },
+  {
+    "CategoriaId": 2,
+    "CategoriaName": "Enduro / Touring"
+  },
+  {
+    "CategoriaId": 3,
+    "CategoriaName": "Scooter"
+  },
+  {
+    "CategoriaId": 4,
+    "CategoriaName": "Cubs"
+  },
+  {
+    "CategoriaId": 5,
+    "CategoriaName": "Naked / Pista"
+  },
+  {
+    "CategoriaId": 6,
+    "CategoriaName": "Cascos"
+  }
+]

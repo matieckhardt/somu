@@ -1,0 +1,22 @@
+[
+  {
+    "CarouselLanding": 1,
+    "HomeId": "carousel-landing",
+    "HomeData": "./img/carousel/img-2.jpg"
+  },
+  {
+    "CarouselLanding": 2,
+    "HomeId": "carousel-landing",
+    "HomeData": "./img/carousel/img-2.jpg"
+  },
+  {
+    "CarouselLanding": 3,
+    "HomeId": "carousel-landing",
+    "HomeData": "./img/carousel/img-3.jpg"
+  },
+  {
+    "CarouselLanding": 4,
+    "HomeId": "carousel-landing",
+    "HomeData": "./img/carousel/img-4.jpg"
+  }
+]
