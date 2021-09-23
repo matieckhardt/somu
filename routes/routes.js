@@ -59,8 +59,8 @@ router.get("/OperacionCategorias/ObtenerCategorias", async function (req, res) {
 router.get("/OperacionCategorias/ObtenerSubCategorias/:nombre", async function (req, res) {
   Categoria.find({ CategoriaName: req.params.nombre }, (err, items) => {
     if (err) res.status(500).send(error)
-    console.log(items[0])
-    res.render('subcat',  items[0] )
+    console.log(items[0].SubCategorias.map(o => o.SubCategoriaName))
+    res.render('subcat',  items[0].SubCategorias.map(o => o.SubCategoriaName))
   });
 });
 

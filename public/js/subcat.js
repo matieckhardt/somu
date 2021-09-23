@@ -14,8 +14,6 @@ function consultarCategorias() {
   var request = $.ajax({
     url: urlCompleta,
     type: "GET",
-    dataType: "json",
-    data: {},
   });
   request.done(function (response) {
     agregarCategoriasAlNavbar(response);
