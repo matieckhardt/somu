@@ -3822,8 +3822,8 @@ fieldset:disabled a.btn {
 
 .btn-block {
   display: block;
-  margin-left: 64px;
-  width: 55%;
+  margin-left: 40px;
+  width: 65%;
 }
 
 .btn-block+.btn-block {
