@@ -595,11 +595,9 @@ footer {
         text-align: center;
         color: #00374d !important;
     }
-    #footer-ul{
+    #footer-ul {
         margin-top: 60px;
     }
-    .contact-text{
-        color:#00374d !important;
-    }
+
 }
 }

@@ -178,15 +178,12 @@ sup {
 
 a {
 
-  color: white;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   background-color: transparent
 }
-a .contact-text{
-
-  color: rgb(95, 7, 7);
-  text-decoration: none;
-  background-color: transparent
+.contact-text {
+  color:#F39C12 !important;
 }
 
 a:hover {
