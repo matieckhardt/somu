@@ -1,52 +1,67 @@
 const { Router } = require("express");
 const Categoria = require("../models/Categorias");
 const Productos = require("../models/Productos");
+const Form = require("../models/Form");
 const path = require("path");
 const Carousel = require("../models/Carousel");
-const jsonProductos = require("../public/jsons/productos.json");
 const router = Router();
 
 const ruta = path.join(__dirname, "../public/");
 
 router.get("/", (req, res) => {
-  res.send(index);
+  res.render("index");
 });
 router.get("/Home", function (req, res) {
-  res.sendFile(ruta + "index.html");
+  res.render("index");
 });
 router.get("/Categories", function (req, res) {
-  res.sendFile(ruta + "categories.html");
+    res.render("categories");
 });
 router.get("/Home/Products", function (req, res) {
-  res.sendFile(ruta + "products.html");
+    res.render("products");
 });
 router.get("/Home/Products/Details", function (req, res) {
-  res.sendFile(ruta + "/products-a/product-1.html");
+    res.render("/products-a/product-1");
 });
 router.get("/AboutUs", function (req, res) {
-  res.sendFile(ruta + "about-us.html");
+    res.render("about-us");
 });
 router.get("/Faq", function (req, res) {
-  res.sendFile(ruta + "faq.html");
+    res.render("faq");
 });
 router.get("/Empresas", function (req, res) {
-  res.sendFile(ruta + "empresas.html");
+    res.render("empresas");
 });
 router.get("/Suv", function (req, res) {
-  res.sendFile(ruta + "suv.html");
+    res.render("suv");
 });
 router.get("/Contact", function (req, res) {
-  res.sendFile(ruta + "contact.html");
+    res.render("contact");
 });
-router.get("/Sales", function (req, res) {
-  res.sendFile(ruta + "sales.html");
+router.get("/Form", function (req, res) {
+    res.render("form");
 });
+router.get("/Shop", function (req, res) {
+  res.render("shop");
+});
+router.get('/Categorias/:subcat', (req, res) => {
+  res.render("subcat");
+});
+
 
 // Filtros Categorias
 
 router.get("/OperacionCategorias/ObtenerCategorias", async function (req, res) {
   const data = await Categoria.find();
   res.json(data);
+});
+
+router.get("/OperacionCategorias/ObtenerSubCategorias/:nombre", async function (req, res) {
+  Categoria.find({ CategoriaName: req.params.nombre }, (err, items) => {
+    if (err) res.status(500).send(error)
+    console.log(items[0])
+    res.render('subcat',  items[0] )
+  });
 });
 
 router.post("/OperacionCategorias/ObtenerCategoria", async function (req, res) {
@@ -109,32 +124,18 @@ router.post("/postCar", async (req, res) => {
   }
 });
 
-router.post("/postearDatos", async (req, res) => {
+router.post("/postSubCat", async (req, res) => {
   const datos = [
     {
       "CategoriaId": 1,
-      "CategoriaName": "Calle"
+      "CategoriaName": "Jona",
+      "SubCategorias": [
+        {
+          "SubCategoriaId": 1,
+          "SubCategoriaName": "Roberto"
+        }
+      ]
     },
-    {
-      "CategoriaId": 2,
-      "CategoriaName": "Enduro / Touring"
-    },
-    {
-      "CategoriaId": 3,
-      "CategoriaName": "Scooter"
-    },
-    {
-      "CategoriaId": 4,
-      "CategoriaName": "Cubs"
-    },
-    {
-      "CategoriaId": 5,
-      "CategoriaName": "Naked / Pista"
-    },
-    {
-      "CategoriaId": 6,
-      "CategoriaName": "Cascos"
-    }
   ];
   try {
     datos.forEach(async (dato) => {
@@ -147,5 +148,28 @@ router.post("/postearDatos", async (req, res) => {
     res.status(500).send("There was a problem registering the client");
   }
 });
+
+router.post("/postMongo", async (req, res) => {
+  const datos = [req.body];
+  try {
+    datos.forEach(async (dato) => {
+      const form = new Form(dato);
+      console.log(form);
+      await form.save();
+    });
+    res.status(201).json(datos);
+  } catch (error) {
+    res.status(500).send("There was a problem registering the client");
+  }
+});
+router.get(
+  "/getForm",
+  async function (req, res) {
+    let data = await Form.find();
+    console.log(data)
+    res.json(data);
+  }
+);
+
 
 module.exports = router;

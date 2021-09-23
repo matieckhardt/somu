@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
     <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.typekit.net/mwr2veg.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <!-- Animate Style -->
     <link rel="stylesheet" href="../css/animate-small.css" />
@@ -28,7 +29,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/img/favicon/site.webmanifest">
+    <link rel="manifest" href="/img/favicon/manifest.json">
     <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
@@ -47,38 +48,38 @@
                         <span class="navbar-toggler-icon"></span>
                     </a>
                     <div class="collapse navbar-collapse sidebar w-100 h-100 align-items-start text-center mt-4">
-                        <ul class="flex-column navbar-nav w-100 wow animate__fadeInLeft animate__fast">
-                            <li class="nav-item active wow animate__fadeInLeft animate__fast">
+                        <ul class="flex-column navbar-nav w-100 wow animate__fast">
+                            <li class="nav-item active wow animate__fadeIn animate__fast">
                                 <a class="nav-link pl-0" href="./">
                                     <span class="">HOME</span></a>
                             </li>
-                            <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-2s">
+                            <li class="nav-item wow animate__fadeIn animate__fast animate__delay-2s">
                                 <a class="nav-link pl-0" href="/AboutUs">
                                     <span class="">NOSOTROS</span></a>
                             </li>
-                            <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-1s">
+                            <li class="nav-item wow animate__fadeIn animate__fast animate__delay-2s">
                                 <a class="nav-link pl-0 dropdown-toggle" href="/Categories">
                                     <span class="">PRODUCTOS</span>
                                 </a>
                             </li>
-                            <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-2s">
+                            <li class="nav-item wow animate__fadeIn animate__fast animate__delay-2s">
                                 <a class="nav-link pl-0" href="/Empresas">
                                     <span class="">SOLUCIONES A EMPRESAS</span></a>
                             </li>
-                            <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-2s">
+                            <li class="nav-item wow animate__fadeIn animate__fast animate__delay-2s">
                                 <a class="nav-link pl-0" href="/Suv">
                                     <span class="">SANITIZACION UV</span></a>
                             </li>
-                            <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-2s">
+                            <li class="nav-item wow animate__fadeIn animate__fast animate__delay-2s">
                                 <a class="nav-link pl-0" href="/Shop">
                                     <span class="">SHOP</span></a>
                             </li>
-                            <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-2s">
+                            <li class="nav-item wow animate__fadeIn animate__fast animate__delay-2s">
                                 <a class="nav-link pl-0" href="/Faq">
                                     <span class="">PREGUNTAS FRECUENTES</span></a>
                             </li>
                         </li>
-                            <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-3s">
+                            <li class="nav-item wow animate__fadeIn animate__fast animate__delay-3s">
                                 <a class="nav-link pl-0" href="/Contact">
                                     <span class="">CONTACTO</span></a>
                             </li>
@@ -172,13 +173,13 @@
                 <section class="container my-5">
                     <div class="row">
                         <div class="col-sm-12 col-md-5 pr-4 wow animate__fadeIn animate__delay-3s animate__slow">
-                            <img class="img-fluid img-side w-100" src="../img/home/left.jpg"
+                            <img class="img-fluid img-side w-100" id="img-left" src="../img/home/left.jpg"
                                 alt="imagen empresa derecha" />
                         </div>
-                        <div class="col-sm-12 col-md-7 wow animate__fadeInLeft animate__delay-1s">
+                        <div class="col-sm-12 col-md-7 wow animate__fadeInRight animate__delay-1s">
                             <h5 class="subtitle">Que hacemos?</h5>
-                            <h3 class="title">Servicios realizados por nosotros</h3>
-                            <div class="row my-4 wow animate__fadeInLeft animate__delay-2s px-4">
+                            <h3 class="title">Nuestros Servicios</h3>
+                            <div class="row my-4 wow animate__fadeInRight animate__delay-2s px-4">
                                 <div class="col-sm-3 col-4">
                                     <div class="service-icons bg-primary">
                                         <i class="fas fa-ruler-combined fa-3x text-success"></i>
@@ -191,7 +192,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row my-4 wow animate__fadeInLeft animate__delay-2s px-4">
+                            <div class="row my-4 wow animate__fadeInRight animate__delay-2s px-4">
                                 <div class="col-sm-3 col-4">
                                     <div class="service-icons bg-primary">
                                         <i class="fas fa-clipboard-list fa-3x text-success"></i>
@@ -204,7 +205,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row my-4 wow animate__fadeInLeft animate__delay-3s px-4">
+                            <div class="row my-4 wow animate__fadeInRight animate__delay-3s px-4">
                                 <div class="col-sm-3 col-4">
                                     <div class="service-icons bg-primary">
                                         <i class="fas fa-briefcase fa-3x text-success"></i>
@@ -217,7 +218,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row my-4 wow animate__fadeInLeft animate__delay-4s px-4">
+                            <div class="row my-4 wow animate__fadeInRight animate__delay-4s px-4">
                                 <div class="col-sm-3 col-4">
                                     <div class="service-icons bg-primary">
                                         <i class="fa fa-wrench fa-3x text-success"></i>
@@ -230,7 +231,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row my-4 wow animate__fadeInLeft animate__delay-5s px-4">
+                            <div class="row my-4 wow animate__fadeInRight animate__delay-5s px-4">
                                 <div class="col-sm-3 col-4">
                                     <div class="service-icons bg-primary">
                                         <i class="fa fa-shield-virus fa-3x text-success"></i>
@@ -243,7 +244,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row my-4 wow animate__fadeInLeft animate__delay-4s px-4">
+                            <div class="row my-4 wow animate__fadeInRight animate__delay-4s px-4">
                                 <div class="col-sm-3 col-4">
                                     <div class="service-icons bg-primary">
                                         <i class="fas fa-truck-loading fa-3x text-success"></i>
@@ -268,60 +269,55 @@
                 <section id="testimonios">
                     <div>
                       <blockquote class="quote-card">
-                        <p>Scratch a dog and you'll find a permanent job.</p>
-                        <cite> Franklin P. Jones </cite>
+                        <p>El trabajo quedó excelente, es todo lo que esperabamos</p>
+                        <cite> Julieta Venegas </cite>
                       </blockquote>
                     </div>
                     <div>
                       <blockquote class="quote-card yellow-card">
                         <p>
-                          Life is one big road with lots of signs. So when you riding
-                          through the ruts, don't complicate your mind. Flee from hate,
-                          mischief and jealousy. Don't bury your thoughts, put your
-                          vision to reality. Wake Up and Live!
+                        Fernando fue muy atento y logró llevar nuestra idea a la realidad. Estamos muy contentos
                         </p>
-                        <cite> Bob Marley </cite>
+                        <cite> Maximo Cozzetti </cite>
                       </blockquote>
                     </div>
                     <div>
                       <blockquote class="quote-card blue-card">
                         <p>
-                          Our greatest glory is not in never falling, but in rising
-                          every time we fall.
+                          Todos los productos que pedimos llegaron siempre en tiempo y forma, un placer trabajar asi! Gracias!
                         </p>
-                        <cite> Confucius </cite>
+                        <cite> Volkswagen Argentina </cite>
                       </blockquote>
                     </div>
                     <div>
                       <blockquote class="quote-card red-card">
                         <p>
-                          A creative man is motivated by the desire to achieve, not by
-                          the desire to beat others.
+                          Productos de primer nivel con muy buen servicio de post-venta. 
                         </p>
-                        <cite> Ayn Rand </cite>
+                        <cite> Jose Lopez </cite>
                       </blockquote>
                     </div>
                   </section>
-                <footer class="bg-primary text-white border-success">
+                <footer class=" bg-primary text-white border-success">
                     <div class="row m-0">
-                        <div class="col col-md-8 p-0">
-                            <ul class="text-center h-100 m-0 p-4 d-flex flex-column justify-content-center">
-                                <li>Nuestra Fábrica</li>
-                                <li>
+                        <div class=" col col-md-8 p-0">
+                            <ul id="footer-ul">
+                                <li class="footer-text">Nuestra Fábrica</li>
+                                <li class="footer-text">
                                     Dirección: <a href="https://goo.gl/maps/eaR4DZEDHyMzZ6WD8" target="_blank">Lisandro
                                         De La Torre 4178, Tortuguitas</a>
                                 </li>
-                                <li>Mail:
+                                <li class="footer-text">Mail:
                                     <a href="mailto:info@solucionesmodulares.com.ar">
                                         info@solucionesmodulares.com.ar</a>
                                 </li>
-                                <li>
+                                <li class="footer-text">
                                     <a href="./">Home</a> |
                                     <a href="#">Productos</a> |
                                     <a href="/AboutUs">Preguntas frecuentes</a> |
                                     <a href="/Contact">Contacto</a>
                                 </li>
-                                <li class="mt-5">Soluciones Modulares - 2020 -
+                                <li class="footer-text mt-5">Soluciones Modulares - 2020 -
                                     <a href="https://switchit.com.ar/" target="_blank">Switchit</a>
                                 </li>
                             </ul>

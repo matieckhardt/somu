@@ -178,7 +178,13 @@ sup {
 
 a {
 
-  color: #ffca12;
+  color: white;
+  text-decoration: none;
+  background-color: transparent
+}
+a .contact-text{
+
+  color: rgb(95, 7, 7);
   text-decoration: none;
   background-color: transparent
 }
@@ -3217,7 +3223,7 @@ fieldset:disabled a.btn {
 .btn-success {
   color: #00374d;
   background-color: #Ffca12;
-  border-color: #Ffca12
+  border-color: #00374d
 }
 
 .btn-success:hover {
@@ -3778,7 +3784,7 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #ffaa00;
+  color: #ffca12;
   text-decoration: none
 }
 
@@ -3816,7 +3822,8 @@ fieldset:disabled a.btn {
 
 .btn-block {
   display: block;
-  width: 100%
+  margin-left: 64px;
+  width: 55%;
 }
 
 .btn-block+.btn-block {
@@ -5099,7 +5106,7 @@ input[type="button"].btn-block {
   -ms-flex-direction: column;
   flex-direction: column;
   padding-left: 0;
-  margin-bottom: 0;
+  margin-top: 9vh;
   list-style: none
 }
 
@@ -7741,7 +7748,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #00374d !important
+  background-color: #00374d !important;
 }
 
 a.bg-primary:hover,
@@ -11757,7 +11764,7 @@ button.bg-dark:focus {
 }
 
 .font-weight-bold {
-  font-weight: 700 !important
+  font-weight: 400 !important
 }
 
 .font-weight-bolder {
@@ -11791,7 +11798,7 @@ a.text-secondary:focus {
 }
 
 .text-success {
-  color: #Ffca12 !important
+  color: #ffca12 !important;
 }
 
 a.text-success:hover,
@@ -12212,7 +12219,7 @@ a.text-dark:focus {
 }
 
 aside .bg-primary {
-  background-color: #ffca12 !important;
+  background-color: #b5b5b1 !important;
 }
 
 aside .btn-success {

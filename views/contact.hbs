@@ -1,0 +1,80 @@
+       <section class="container my-5 wow animate__fadeInLeft animate__delay-1s">
+          <h5 class="subtitle">Contáctese</h5>
+          <h3 id="contact" class="title ">LE RESPONDEREMOS A LA BREVEDAD</h3>
+          <div class="row">
+            <div class="col-sm-6 col-12 my-3 orden">
+              <div class="row my-4 px-4 wow animate__fadeInLeft animate__delay-2s animate__slow">
+                <div class="col-sm-3 col-4">
+                  <div class="service-icons bg-warning">
+                    <i class="fa fa-envelope fa-3x text-primary"></i>
+                  </div>
+                </div>
+                <div class="col-sm-8 col-8">
+                  <div class="service-text contact-text">
+                    <h5 class="mt-4"><a id="contact"
+                        href="mailto:info@solucionesmodulares.com.ar">info@solucionesmodulares.com.ar</a></h5>
+                  </div>
+                </div>
+              </div>
+              <div class="row my-4 px-4 wow animate__fadeInLeft animate__delay-3s animate__slow">
+                <div class="col-sm-3 col-4">
+                  <div class="service-icons bg-warning">
+                    <i class="fa fa-map fa-3x text-primary"></i>
+                  </div>
+                </div>
+                <div class="col-sm-8 col-8">
+                  <div class="service-text contact-text">
+                    <h5 class="mt-4"><a id="contact" href="https://goo.gl/maps/eaR4DZEDHyMzZ6WD8" target="_blank">Lisandro De La
+                        Torre 4178,
+                        Tortuguitas, Malvinas Argentinas, Buenos Aires, Argentina.</a></h5>
+                  </div>
+                </div>
+              </div>
+              <div class="row my-4 px-4 wow animate__fadeInLeft animate__delay-4s animate__slow">
+                <div class="col-sm-3 col-4">
+                  <div class="service-icons bg-warning">
+                    <i class="fa fa-phone fa-3x text-primary"></i>
+                  </div>
+                </div>
+                <div class="col-sm-8 col-8">
+                  <div class="service-text contact-text">
+                    <h5 class="mt-4">Whatsapp: <a id="contact" href="https://wa.me/5491158888766">11-5888-8766</a></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-12">
+              <form id="form-contacto">
+                <div class="form-group">
+                  <input type="text" id="nombreFormulario" class="form-control form-control-lg" placeholder="Nombre"
+                    name="Nombre">
+                </div>
+                <div class="form-group">
+                  <input type="text" id="emailFormulario" class="form-control form-control-lg" placeholder="Email"
+                    name="Email">
+                </div>
+                <div class="form-group">
+                  <input type="text" id="asuntoFormulario" class="form-control form-control-lg" placeholder="Asunto"
+                    name="Asunto">
+                </div>
+                <div class="form-group">
+                  <textarea id="mensajeFormulario" cols="30" rows="7" class="form-control form-control-lg"
+                    placeholder="Mensaje" name="Mensaje"></textarea>
+                </div>
+                <div class="form-group">
+                  <input onclick="enviarMensaje()" type="button" class="btn btn-lg btn-success btn-send-message"
+                    value="Enviar Mensaje">
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+        <section class="border-success" id="map">
+          <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d822.2475092085801!2d-58.77478822927256!3d-34.47777700463154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc98e50480b05d%3A0x278360c33f1b0ae0!2sLisandro%20de%20la%20Torre%204178%2C%20B1667%20Tortuguitas%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1600400328818!5m2!1ses-419!2sar"
+          width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+          tabindex="0"></iframe>
+        </section>
+        {{>footer}}
+          <!-- Script associated -->
+  <script src="../contact.js"></script>

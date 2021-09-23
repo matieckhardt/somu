@@ -23,14 +23,14 @@ function agregarCategorias(response) {
         try {
             var categorias = document.getElementById("categorias");
             var categoria = document.createElement("a");
-            console.log(element)
+            console.log(element.CategoriaName)
             if (response.length < 5) {
-                categoria.href = "/Home/Products?categoriaId=" + element.CategoriaId;
+                categoria.href = "/Categorias/" + element.CategoriaName;
                 categoria.className = "w-50 h-50";
                 categoria.innerHTML = "<div class='w-100 h-100 category-custom' style='background: url(/img/categories/cat" + element.CategoriaId + ".jpg'></div><h1 class='text-white text-left pt-3'>" + element.CategoriaName + "</h1>";
                 categorias.appendChild(categoria);
             } else {
-                categoria.href = "/Home/Products?categoriaId=" + element.CategoriaId;
+                categoria.href = "/Categorias/" + element.CategoriaName;
                 categoria.className = "col-4 p-0 m-0 h-50";
                 categoria.innerHTML = "<div class='w-100 h-100 category-custom' style='background: url(/img/categories/cat" + element.CategoriaId + ".jpg'></div><h1 class='text-white text-left pt-3'>" + element.CategoriaName + "</h1>";
                 categorias.appendChild(categoria);

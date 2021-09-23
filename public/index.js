@@ -135,7 +135,7 @@ function ejecutarAcciones() {
         lazyLoad: 'progressive',
         infinite: true,
         autoplaySpeed: 4000,
-        speed: 2000,
+        speed: 4000,
     });
 
     // **** ESTE ES EL CARRUSEL DE LOS PRODUCTOS ****
@@ -156,7 +156,7 @@ function ejecutarAcciones() {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-
+/*
     // **** ESTO PRESENTA LAS IMGS DEL CARRUSEL EN EL BOTON DE EDITAR ****
     // seteamos el dir y la extensión de los archivos a buscar
     var dir = "/img/carousel";
@@ -216,6 +216,7 @@ function ejecutarAcciones() {
         let imagen = e.getElementsByTagName('img')[0];
         alert("la url es " + imagen.src)
     }
+    */
 
     // **** ACTIVA EL SCROLLREVEALER WOW ****
     var wow = new WOW({
