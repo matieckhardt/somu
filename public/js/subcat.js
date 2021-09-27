@@ -2,14 +2,16 @@ var variableItemSeleccionado = 0;
 
 window.onload = function () {
   var data = window.location.search;
-  consultarCategoria(data.substr(data.lastIndexOf('/') + 1));
+  consultarCategoria(data.substr(data.lastIndexOf("/") + 1));
   consultarCategorias();
 };
 
 function consultarCategorias() {
   var subcat = window.location.search;
 
-  var urlCompleta = "/OperacionCategorias/ObtenerSubCategorias/" + subcat.substr(subcat.lastIndexOf('/') + 1);
+  var urlCompleta =
+    "/OperacionCategorias/ObtenerSubCategorias/" +
+    subcat.substr(subcat.lastIndexOf("/") + 1);
 
   var request = $.ajax({
     url: urlCompleta,
@@ -72,7 +74,9 @@ function agregarItemDeCategoria(items) {
 function elementosDelItem(element) {
   var elementos =
     "" +
-    "<a href='/Home/Products/Details?ProyectId="+ element.ProyectId + "'>" +
+    "<a href='/Home/Products/Details?ProyectId=" +
+    element.ProyectId +
+    "'>" +
     "<img src='" +
     element.MainImageURL +
     "' alt='product img' class='card-img products-img'>" +
