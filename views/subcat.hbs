@@ -1,7 +1,18 @@
-{{#each SubCategorias}}
-<h1> {{SubCategoriaName}} </h1>
-{{/each}}
+<section class="container my-5 flex-grow-1 wow animate__fadeIn animate__slow">
+  <h3 class="title">Tipos de {{CategoriaName}}</h3>
+  <div id="items-categoria" class="row mt-5 justify-content-center">
+    {{#each SubCategorias}}
+      <div class="card card-custom mx-2 mb-3">
+        <a href="/Categorias/{{../CategoriaName}}/{{name}}">
+          <img src="{{img}}" alt="product img" class="card-img products-img" />
+          <div class="card-body d-flex flex-column mt-auto">
+            <h4 class="card-title mb-0">{{name}}</h4>
+          </div>
+        </a>
+      </div>
+    {{/each}}
+  </div>
+</section>
 
-
-  <!-- Script associated -->
-  <script defer src="/js/subcat.js"></script>
+<!-- Script associated -->
+<!-- <script defer src="/js/subcat.js"></script> -->

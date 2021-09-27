@@ -6,10 +6,11 @@ const categoriasSchema = new Schema(
     CategoriaName: String,
     SubCategorias: [
       {
-      SubCategoriaId: Number,
-      SubCategoriaName: String
-      }
-  ],
+        SubCategoriaId: Number,
+        SubCategoriaName: String,
+        SubCategoriaImg: String,
+      },
+    ],
   },
   {
     timestamps: true,

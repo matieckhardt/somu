@@ -15,39 +15,70 @@ router.get("/Home", function (req, res) {
   res.render("index");
 });
 router.get("/Categories", function (req, res) {
-    res.render("categories");
+  res.render("categories");
 });
 router.get("/Home/Products", function (req, res) {
-    res.render("products");
+  res.render("products");
 });
 router.get("/Home/Products/Details", function (req, res) {
-    res.render("/products-a/product-1");
+  res.render("/products-a/product-1");
 });
 router.get("/AboutUs", function (req, res) {
-    res.render("about-us");
+  res.render("about-us");
 });
 router.get("/Faq", function (req, res) {
-    res.render("faq");
+  res.render("faq");
 });
 router.get("/Empresas", function (req, res) {
-    res.render("empresas");
+  res.render("empresas");
 });
 router.get("/Suv", function (req, res) {
-    res.render("suv");
+  res.render("suv");
 });
 router.get("/Contact", function (req, res) {
-    res.render("contact");
+  res.render("contact");
 });
 router.get("/Form", function (req, res) {
-    res.render("form");
+  res.render("form");
 });
 router.get("/Shop", function (req, res) {
   res.render("shop");
 });
-router.get('/Categorias/:subcat', (req, res) => {
-  res.render("subcat");
+router.get("/Categorias/:subcat", async (req, res) => {
+  try {
+    const items = await Categoria.find({ CategoriaName: req.params.subcat });
+    const datos = items[0].SubCategorias.map(
+      ({ SubCategoriaImg, SubCategoriaName }) => ({
+        img: SubCategoriaImg,
+        name: SubCategoriaName,
+      })
+    );
+    res.render("subcat", {
+      SubCategorias: datos,
+      CategoriaName: req.params.subcat,
+    });
+  } catch (error) {
+    console.log("ups", error);
+  }
 });
 
+router.get("/Categorias/:subcat/:producto", async (req, res) => {
+  try {
+    const producto = req.params.producto;
+    /*
+    const items = await Categoria.find({ CategoriaName: req.params.subcat });
+    const datos = items[0].SubCategorias.map(
+      ({ SubCategoriaImg, SubCategoriaName }) => ({
+        img: SubCategoriaImg,
+        name: SubCategoriaName,
+      })
+    );
+    */
+    res.render("products", { producto });
+  } catch (error) {
+    console.log("ups", error);
+  }
+});
 
 // Filtros Categorias
 
@@ -56,13 +87,19 @@ router.get("/OperacionCategorias/ObtenerCategorias", async function (req, res) {
   res.json(data);
 });
 
-router.get("/OperacionCategorias/ObtenerSubCategorias/:nombre", async function (req, res) {
-  Categoria.find({ CategoriaName: req.params.nombre }, (err, items) => {
-    if (err) res.status(500).send(error)
-    console.log(items[0].SubCategorias.map(o => o.SubCategoriaName))
-    res.render('subcat',  items[0].SubCategorias.map(o => o.SubCategoriaName))
-  });
-});
+router.get(
+  "/OperacionCategorias/ObtenerSubCategorias/:nombre",
+  async function (req, res) {
+    Categoria.find({ CategoriaName: req.params.nombre }, (err, items) => {
+      if (err) res.status(500).send(error);
+      console.log(items[0].SubCategorias.map((o) => o.SubCategoriaName));
+      res.render(
+        "subcat",
+        items[0].map((o) => o.SubCategoriaName)
+      );
+    });
+  }
+);
 
 router.post("/OperacionCategorias/ObtenerCategoria", async function (req, res) {
   const data = await Categoria.find({ CategoriaId: req.body.id });
@@ -76,13 +113,10 @@ router.post(
     res.json(data);
   }
 );
-router.get(
-  "/ObtenerImagenesCarrousel",
-  async function (req, res) {
-    let data = await Carousel.find();
-    res.json(data);
-  }
-);
+router.get("/ObtenerImagenesCarrousel", async function (req, res) {
+  let data = await Carousel.find();
+  res.json(data);
+});
 
 // Get all posts
 router.get("/posts", async (req, res) => {
@@ -127,14 +161,14 @@ router.post("/postCar", async (req, res) => {
 router.post("/postSubCat", async (req, res) => {
   const datos = [
     {
-      "CategoriaId": 1,
-      "CategoriaName": "Jona",
-      "SubCategorias": [
+      CategoriaId: 1,
+      CategoriaName: "Jona",
+      SubCategorias: [
         {
-          "SubCategoriaId": 1,
-          "SubCategoriaName": "Roberto"
-        }
-      ]
+          SubCategoriaId: 1,
+          SubCategoriaName: "Roberto",
+        },
+      ],
     },
   ];
   try {
@@ -162,14 +196,10 @@ router.post("/postMongo", async (req, res) => {
     res.status(500).send("There was a problem registering the client");
   }
 });
-router.get(
-  "/getForm",
-  async function (req, res) {
-    let data = await Form.find();
-    console.log(data)
-    res.json(data);
-  }
-);
-
+router.get("/getForm", async function (req, res) {
+  let data = await Form.find();
+  console.log(data);
+  res.json(data);
+});
 
 module.exports = router;
