@@ -71,7 +71,7 @@ function agregarImagenesAlCarrousel(imagenes) {
         var carrousel = document.getElementById("carousel-landing");
 
         var imagen = document.createElement("div");
-        imagen.innerHTML = "<img src='" + element.HomeData + "' alt='Imagen carrusel presentación " + element.HomeId + "'>";
+        imagen.innerHTML = "<img src='" + element.HomeData + "' loading='lazy " + "'>";
         carrousel.appendChild(imagen);
     });
 }
