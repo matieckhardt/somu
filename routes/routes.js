@@ -8,20 +8,40 @@ const router = Router();
 
 const ruta = path.join(__dirname, "../public/");
 
-router.get("/", (req, res) => {
-  res.render("index");
+// Ruta del index y carousel
+router.get("/", async (req, res)  => {
+  try {
+  const slide = await Carousel.find();
+  const datos = slide.map(
+    ({ HomeData }) => ({
+      slideUrl: HomeData,
+    })
+  ); 
+  res.render("index", {Slides: datos});
+} catch (error) {
+  console.log("ups", error);
+}
 });
-router.get("/Home", function (req, res) {
-  res.render("index");
+
+// rutas a secciones 
+
+router.get("/Categories", async (req, res)  => {
+  try {
+  const items = await Categoria.find();
+  const datos = items.map(
+    ({ CategoriaId, CategoriaName }) => ({
+      id: CategoriaId,
+      nombre: CategoriaName,     
+    })
+  ); 
+  res.render("categories", {categorias: datos});
+} catch (error) {
+  console.log("ups", error);
+}
 });
-router.get("/Categories", function (req, res) {
-  res.render("categories");
-});
-router.get("/Home/Products", function (req, res) {
-  res.render("products");
-});
-router.get("/Home/Products/Details", function (req, res) {
-  res.render("/products-a/product-1");
+
+router.get("/Productos/:subcat/:detalles", function (req, res) {
+  res.render("/prodetails");
 });
 router.get("/AboutUs", function (req, res) {
   res.render("about-us");
@@ -44,6 +64,8 @@ router.get("/Form", function (req, res) {
 router.get("/Shop", function (req, res) {
   res.render("shop");
 });
+
+// Rutas de las Sub Categorias
 router.get("/Categorias/:subcat", async (req, res) => {
   try {
     const items = await Categoria.find({ CategoriaName: req.params.subcat });
@@ -62,6 +84,7 @@ router.get("/Categorias/:subcat", async (req, res) => {
   }
 });
 
+// Rutas de los Productos
 router.get("/Categorias/:subcat/:producto", async (req, res) => {
   try {
     const producto = req.params.producto;
@@ -83,63 +106,9 @@ router.get("/Categorias/:subcat/:producto", async (req, res) => {
   }
 });
 
-router.get("/getProd", async function (req, res) {
-  const data = await Productos.find();
-  const datos = data.map(
-    ({ MainImageURL, SubCategoriaName, Title }) => ({
-      img: MainImageURL,
-      name: Title,
-      SubCategoria: SubCategoriaName,
-    }
-    ));
-    console.log(datos)
-  res.json(datos);
-});
 
-// Filtros Categorias
 
-router.get("/OperacionCategorias/ObtenerCategorias", async function (req, res) {
-  const data = await Categoria.find();
-  res.json(data);
-});
-
-router.get(
-  "/OperacionCategorias/ObtenerSubCategorias/:nombre",
-  async function (req, res) {
-    Categoria.find({ CategoriaName: req.params.nombre }, (err, items) => {
-      if (err) res.status(500).send(error);
-      console.log(items[0].SubCategorias.map((o) => o.SubCategoriaName));
-      res.render(
-        "subcat",
-        items[0].map((o) => o.SubCategoriaName)
-      );
-    });
-  }
-);
-
-router.post("/OperacionCategorias/ObtenerCategoria", async function (req, res) {
-  const data = await Categoria.find({ CategoriaId: req.body.id });
-  res.json(data[0]);
-});
-
-router.post(
-  "/OperacionCategorias/ObtenerItemsCategoria",
-  async function (req, res) {
-    let data = await Productos.find({ CategoriaId: req.body.id });
-    res.json(data);
-  }
-);
-router.get("/ObtenerImagenesCarrousel", async function (req, res) {
-  let data = await Carousel.find();
-  res.json(data);
-});
-
-// Get all posts
-router.get("/posts", async (req, res) => {
-  const posts = await Carousel.find();
-  res.send(posts);
-});
-
+// Ruta para postear cosas a la base de ejemplo
 router.post("/postCar", async (req, res) => {
   const datos = [
     {
@@ -196,23 +165,5 @@ router.post("/postSubCat", async (req, res) => {
   }
 });
 
-router.post("/postMongo", async (req, res) => {
-  const datos = [req.body];
-  try {
-    datos.forEach(async (dato) => {
-      const form = new Form(dato);
-      console.log(form);
-      await form.save();
-    });
-    res.status(201).json(datos);
-  } catch (error) {
-    res.status(500).send("There was a problem registering the client");
-  }
-});
-router.get("/getForm", async function (req, res) {
-  let data = await Form.find();
-  console.log(data);
-  res.json(data);
-});
 
 module.exports = router;

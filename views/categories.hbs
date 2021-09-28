@@ -1,5 +1,10 @@
-        <section class="max-vh-100 w-100 h-100">
-          <div id="categorias" class="row w-100 h-100 m-0"></div>
-        </section>
-  <!-- Script associated -->
-  <script defer src="/js/categories.js"></script>
+<section class="max-vh-100 w-100 h-100">
+  <div id="categorias" class="row w-100 h-100 m-0">
+              {{#each categorias}}
+    <a href="/Categorias/{{nombre}}" class="col-4 p-0 m-0 h-50">
+      <div class="w-100 h-100 category-custom" style="background: url(/img/categories/cat{{id}}.jpg"></div>
+      <h1 class="text-white text-left pt-3">{{nombre}}</h1>
+    </a>
+    {{/each}}    
+  </div>
+</section>

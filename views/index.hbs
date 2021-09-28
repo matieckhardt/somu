@@ -1,6 +1,12 @@
-<div id="carousel-edit" class="carousel-edit"></div>
-<section class="carousel wow animate__fadeIn animate__slow" id="carousel-landing" ></section>
-
+<section id="carousel-landing">
+                {{#each Slides}}
+                        <div> 
+                            <div style="width: 100%; display: inline-block;"><img src="{{slideUrl}}"
+                            loading="lazy "></div>
+                        </div>                     
+                      
+                {{/each}}
+</section>
 <section class="container my-5">
     <div class="row">
         <div class="col-md-7 wow animate__fadeInLeft animate__delay-2s">
@@ -182,5 +188,4 @@
 </section>
 {{>footer}}
 
-<!-- Custom Scripts -->
 <script src="/js/index.js"></script>
