@@ -16,6 +16,7 @@ const productosSchema = new Schema(
     CategoriaId: Number,
     CreatedBy: Number,
     TourURL: String,
+    SubCategoriaName: String,
   },
   {
     timestamps: true,

@@ -65,19 +65,35 @@ router.get("/Categorias/:subcat", async (req, res) => {
 router.get("/Categorias/:subcat/:producto", async (req, res) => {
   try {
     const producto = req.params.producto;
-    /*
-    const items = await Categoria.find({ CategoriaName: req.params.subcat });
-    const datos = items[0].SubCategorias.map(
-      ({ SubCategoriaImg, SubCategoriaName }) => ({
-        img: SubCategoriaImg,
-        name: SubCategoriaName,
-      })
-    );
-    */
-    res.render("products", { producto });
+    const items = await Productos.find({ SubCategoriaName: req.params.producto });
+   const datos = items.map(
+      ({ MainImageURL, SubCategoriaName, Title }) => ({
+        img: MainImageURL,
+        name: Title,
+        SubCategoria: SubCategoriaName,
+      }
+      ));
+      console.log(datos)
+    res.render("products", {
+      Productos: datos,
+      ProductoName: req.params.producto,
+    });
   } catch (error) {
     console.log("ups", error);
   }
+});
+
+router.get("/getProd", async function (req, res) {
+  const data = await Productos.find();
+  const datos = data.map(
+    ({ MainImageURL, SubCategoriaName, Title }) => ({
+      img: MainImageURL,
+      name: Title,
+      SubCategoria: SubCategoriaName,
+    }
+    ));
+    console.log(datos)
+  res.json(datos);
 });
 
 // Filtros Categorias
@@ -127,30 +143,27 @@ router.get("/posts", async (req, res) => {
 router.post("/postCar", async (req, res) => {
   const datos = [
     {
-      CarouselLanding: 1,
-      HomeId: "carousel-landing",
-      HomeData: "./img/carousel/img-2.jpg",
-    },
-    {
-      CarouselLanding: 2,
-      HomeId: "carousel-landing",
-      HomeData: "./img/carousel/img-2.jpg",
-    },
-    {
-      CarouselLanding: 3,
-      HomeId: "carousel-landing",
-      HomeData: "./img/carousel/img-3.jpg",
-    },
-    {
-      CarouselLanding: 4,
-      HomeId: "carousel-landing",
-      HomeData: "./img/carousel/img-4.jpg",
+      ProyectId: 1,
+      MainImageURL: "/img/projects/romanos.jpg",
+      Title: "Crono",
+      Description: "Crono",
+      ShortDescription: "",
+      State: "",
+      Address: "",
+      Year: 0,
+      Size: 0,
+      Rooms: 0,
+      Visible: 1,
+      CategoriaId: 1,
+      CreatedBy: 1,
+      TourURL: "",
+      SubCategoriaName: "Romanos",
     },
   ];
   try {
     datos.forEach(async (dato) => {
-      const carrusel = new Carousel(dato);
-      await carrusel.save();
+      const Producto = new Productos(dato);
+      await Producto.save();
     });
     res.status(201).json("ok");
   } catch (error) {

@@ -248,10 +248,10 @@ footer {
 }
 
 .card-custom .card-body {
-    border-top: 3px solid red;
+    border-top: 3px solid #ffca12;
     padding: .75rem;
     background: #ccc;
-    color: black;
+    color: #00374d;
     overflow: hidden;
     z-index: 1;
 }
