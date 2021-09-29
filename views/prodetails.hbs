@@ -1,1 +1,35 @@
-{{>footer}}
+      <main class="col bg-white d-flex flex-column min-vh-100 wow animate__fadeIn animate__slow">
+        <section class="carousel-product">
+           {{#each Car}}
+                        <div> 
+                            <div style="width: 100%; display: inline-block;"><img src="{{fotos}}"
+                            loading="lazy "></div>
+                        </div>                     
+                      
+                {{/each}}
+        </section>
+        <section class="container my-3 flex-grow-1 wow animate__fadeIn animate__delay-3s">
+          {{#Detalles}}
+          <div class="row">
+            <div class="col-lg-4 col-md-5 col-sm-12 mb-3 wow animate__fadeInLeft animate__delay-4s px-4">
+              <h5 class="btn btn-lg btn-block btn-success">Especificacion A: {{SpA}}</h5>
+              <h5 class="btn btn-lg btn-block btn-success">Especificacion B: {{SpB}}</h5>
+              <h5 class="btn btn-lg btn-block btn-success">Especificacion C: {{SpC}}</h5>
+              <h5 class="btn btn-lg btn-block btn-success">Especificacion D: {{SpD}}</h5>
+              <h5 class="btn btn-lg btn-block btn-success">Especificacion E: {{SpE}}</h5>
+            </div>
+            <div class="col-lg-8 col-md-7 col-sm-12 wow animate__fadeInRight animate__slow px-4">
+              <h3 class="title">{{Titulo}}</h3>
+              <h5>{{Descrip}}</h5>
+              <p>
+               {{Resumen}}
+              </p>
+              <h5 class="btn btn-lg btn-block btn-success"><a href="{{link}}" target="blank"> Ver video </a></h5>
+            </div>
+          </div>
+          <div class="my-4 px-2 wow animate__fadeInUp animate__delay-5s">
+            <h5>{{Resumen}}</h5>
+          </div>
+           {{/Detalles}}
+        </section>
+        <script src="/js/prodetails.js"></script>
