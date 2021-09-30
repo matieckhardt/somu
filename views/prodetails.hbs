@@ -9,8 +9,8 @@
                 {{/each}}
         </section>
         <section class="container my-3 flex-grow-1 wow animate__fadeIn animate__delay-3s">
-          {{#Detalles}}
-          <div class="row">
+                        {{#each detalles}}
+              <div class="row">
             <div class="col-lg-4 col-md-5 col-sm-12 mb-3 wow animate__fadeInLeft animate__delay-4s px-4">
               <h5 class="btn btn-lg btn-block btn-success">Especificacion A: {{SpA}}</h5>
               <h5 class="btn btn-lg btn-block btn-success">Especificacion B: {{SpB}}</h5>
@@ -30,6 +30,6 @@
           <div class="my-4 px-2 wow animate__fadeInUp animate__delay-5s">
             <h5>{{Resumen}}</h5>
           </div>
-           {{/Detalles}}
+              {{/each}}
         </section>
         <script src="/js/prodetails.js"></script>

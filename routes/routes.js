@@ -40,13 +40,13 @@ router.get("/Categories", async (req, res)  => {
 }
 });
 
-router.get("/Productos/Detalles/:name",  async (req, res) => {
+router.get("/Productos/Detalles/:details",  async (req, res) => {
   try {
-    const Detalles = await Productos.find();
-    const fotos = Detalles[0].imgCar.map(
+    const Detalles = await Productos.find({ Title: req.params.details});
+    const DetallesImg = await Productos.find();
+    const fotos = DetallesImg[0].imgCar.map(
       (imgCar) => ({ fotos: imgCar})
     );
-    console.log(fotos)
     const datos = Detalles.map(
       ({ Title, 
         MainImageURL, 
@@ -73,7 +73,8 @@ router.get("/Productos/Detalles/:name",  async (req, res) => {
     
       })
     ); 
-    res.render("prodetails", {Car: fotos, Detalles: datos,   headContent:'Detalles' });
+    res.render("prodetails", {Car: fotos, detalles: datos,   headContent:'Detalles' });
+    console.log(datos)
   } catch (error) {
     console.log("ups", error);
   }
